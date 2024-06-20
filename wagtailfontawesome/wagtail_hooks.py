@@ -8,10 +8,10 @@ except ImportError:  # fallback for Django <2.1
 
 try:
     from wagtail import __version__ as WAGTAIL_VERSION
+    from wagtail import hooks
+except ImportError:  # fallback for Wagtail >2.0 but then <3.2
+    from wagtail import __version__ as WAGTAIL_VERSION
     from wagtail.core import hooks
-except ImportError:  # fallback for Wagtail <2.0
-    from wagtail.wagtailcore import hooks
-    from wagtail.wagtailcore import __version__ as WAGTAIL_VERSION
 
 
 def import_wagtailfontawesome_stylesheet():
